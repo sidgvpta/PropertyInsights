@@ -1,6 +1,7 @@
-import GetPPRData
 import numpy as np
 import pandas as pd
+import GetPPRData
+import Analysis
 
 
 filename = GetPPRData.getHistoricalPrices()
@@ -17,6 +18,9 @@ def preprocessData(ppr_data):
 
 
 preprocessData(ppr_data)
+
+ppr_data_avgPricePerCounty = Analysis.averagePriceByCounty(ppr_data)
+ppr_data_dublin = Analysis.pricesByCounty(ppr_data, 'Dublin')
 
 
 while True:
